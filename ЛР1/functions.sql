@@ -120,29 +120,3 @@ BEGIN
     END LOOP;
 END;
 $$ LANGUAGE plpgsql;
-
--- CREATE OR REPLACE FUNCTION generate_film_actor(film_count INTEGER)
--- RETURNS VOID AS $$
--- BEGIN
---     FOR i IN 1..film_count LOOP
---         INSERT INTO film_actor(film_id, actor_id)
---         SELECT
---             (SELECT film_id FROM films ORDER BY random() LIMIT 1),
---             (SELECT actor_id FROM actors ORDER BY random() LIMIT 1)
---         ON CONFLICT DO NOTHING;
---     END LOOP;
--- END;
--- $$ LANGUAGE plpgsql;
-
--- CREATE OR REPLACE FUNCTION generate_film_genre(film_count INTEGER)
--- RETURNS VOID AS $$
--- BEGIN
---     FOR i IN 1..film_count LOOP
---         INSERT INTO film_genre(film_id, genre_id)
---         SELECT
---             (SELECT film_id FROM films ORDER BY random() LIMIT 1),
---             (1 + random() * 9)::BIGINT
---         ON CONFLICT DO NOTHING;
---     END LOOP;
--- END;
--- $$ LANGUAGE plpgsql;
