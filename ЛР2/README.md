@@ -19,14 +19,14 @@ SELECT
     fd.country,
     fd.release_year,
     fd.duration_minutes,
-    g.name      AS genre,
+    g.name AS genre,
     a.actor_id
 FROM films f
-JOIN film_details fd ON f.film_id  = fd.film_id
-JOIN film_genre   fg ON f.film_id  = fg.film_id
-JOIN genres       g  ON fg.genre_id = g.genre_id
-JOIN film_actor   fa ON f.film_id  = fa.film_id
-JOIN actors       a  ON fa.actor_id = a.actor_id
+JOIN film_details fd ON f.film_id = fd.film_id
+JOIN film_genre fg ON f.film_id = fg.film_id
+JOIN genres g  ON fg.genre_id = g.genre_id
+JOIN film_actor fa ON f.film_id = fa.film_id
+JOIN actors a  ON fa.actor_id = a.actor_id
 """
 ```
 
@@ -73,9 +73,9 @@ X_train, X_test, y_train, y_test = train_test_split(
 )
 
 split_df = pd.DataFrame({
-    "Выборка":     ["Train", "Test", "Всего"],
-    "Размер":      [len(X_train), len(X_test), len(X_train)+len(X_test)],
-    "Доля, %":     [80, 20, 100],
+    "Выборка": ["Train", "Test", "Всего"],
+    "Размер": [len(X_train), len(X_test), len(X_train)+len(X_test)],
+    "Доля, %": [80, 20, 100],
 })
 display(split_df)
 ```
